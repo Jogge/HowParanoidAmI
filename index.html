@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <title>How Paranoid Am I?</title>
+  </head>
+  <body>
+  	<div align="center">
+      <h1>How Paranoid Am I?</h1>
+      <p style="font-style: italic">Get your paranoid level by entering how many GUIDs you append to a single GUID to make it more unique.</p>
+      Number of GUIDs appended:
+      <input type="number" id="numberOfGuidsAppended" min="0" placeholder="42" style="text-align: center;">
+      <p id="paranoid-level" style="font-weight: bold; font-size: 32px; margin-top: 10px;"></p>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    
+    <script type="text/javascript">
+    $('#numberOfGuidsAppended').on('input',function(e){
+    	if( !$(this).val() ) {
+            $("#paranoid-level").text("");
+            return;
+    	}
+    	var numberOfGuidsAppended = parseInt($(this).val());
+        
+        if(numberOfGuidsAppended == 0) {
+        	$("#paranoid-level").text("You are not paranoid");
+        }
+        else {
+            var paranoidLevel = [];
+            
+            for(i = 0; i < numberOfGuidsAppended - 1; i++) {
+            	paranoidLevel.push(" very");
+            }
+            
+        	$("#paranoid-level").text("You are" + paranoidLevel.join(",") + " paranoid");
+        }
+        
+	});
+	</script>
+  </body>
+</html>
