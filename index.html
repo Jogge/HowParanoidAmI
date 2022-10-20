@@ -27,6 +27,9 @@
         if(numberOfGuidsAppended == 0) {
         	$("#paranoid-level").text("You are not paranoid");
         }
+        else if(numberOfGuidsAppended < 0) {
+            $("#paranoid-level").text("You are a paranoid tester");
+        }
         else {
             var paranoidLevel = [];
             
